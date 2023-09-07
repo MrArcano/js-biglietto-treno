@@ -14,6 +14,7 @@
 const tariffaKm = 0.21;
 const scontoUnder18 = 20;
 const scontoOver65 = 40;
+let costoTariffa
 let textOutput;
 
 // 1. Chiedere numero di chilometri da percorrere ed età
@@ -27,7 +28,7 @@ if(parseInt(userKm) > 0){
   if(parseInt(userAge) > 0 && parseInt(userAge) < 125){
 
     // 2. Calcolo tariffa chilometri
-    let costoTariffa = parseInt(userKm) * tariffaKm;
+    costoTariffa = parseInt(userKm) * tariffaKm;
     textOutput = 
     `
     Il costo del biglietto al km è: ${tariffaKm}€. <br>
