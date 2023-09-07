@@ -21,17 +21,36 @@ const userAge = prompt("Quanti anni hai ?");
 
 // 2. Calcolo tariffa chilometri
 let costoTariffa = parseInt(userKm) * tariffaKm;
+let textOutput = 
+`
+Il costo del biglietto al km è: ${tariffaKm}€. <br>
+Vuoi percorrere ${userKm} km, quindi il costo del biglietto è: ${costoTariffa.toFixed(2)}€ <br>
+` 
 
 
 // 3. Controllo età e applico sconto se necessario
 if(parseInt(userAge) < 18){
   costoTariffa = costoTariffa * (100 - scontoUnder18) / 100;
+
+  textOutput = 
+  `
+  ${textOutput} <br> 
+  Per i minorenne viene applicato uno sconto del ${scontoUnder18}% <br>
+  Il costo del tuo biglietto è: ${costoTariffa.toFixed(2)}€
+  `
 }
 if(parseInt(userAge) >= 65){
   costoTariffa = costoTariffa * (100 - scontoOver65) / 100;
+  textOutput = 
+  `
+  ${textOutput} <br> 
+  Per gli over 65 viene applicato uno sconto del ${scontoOver65}% <br>
+  Il costo del tuo biglietto è: ${costoTariffa.toFixed(2)}€
+  `
 }
 
-document.getElementById("priceTicket").innerHTML= costoTariffa.toFixed(2);
+// 4. Output messaggio cifra finale con due decimali
+document.getElementById("priceTicket").innerHTML= textOutput;
 
 
 
