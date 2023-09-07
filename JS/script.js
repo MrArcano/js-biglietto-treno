@@ -35,14 +35,8 @@ if(parseInt(userKm) > 0){
     Vuoi percorrere ${userKm} km, quindi il costo del biglietto è: ${costoTariffa.toFixed(2)}€ <br>
     `;
     
-    console.log("dopo il calcolo");
-    console.log(textOutput);
-    
-    
     // 3. Controllo età e applico sconto se necessario
     if(parseInt(userAge) < 18){
-      console.log("18");
-
       costoTariffa = costoTariffa * (100 - scontoUnder18) / 100;
     
       textOutput =
@@ -55,8 +49,6 @@ if(parseInt(userKm) > 0){
     }
 
     if(parseInt(userAge) >= 65){
-      console.log("65");
-
       costoTariffa = costoTariffa * (100 - scontoOver65) / 100;
       textOutput = 
       `
